@@ -1,0 +1,10 @@
+{
+	"name": "f_fase1",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "f_geral"
+		}
+	],
+	"sid": 488343875809809
+}

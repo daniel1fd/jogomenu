@@ -1,0 +1,277 @@
+{
+	"name": "f_geral",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 540331485305162
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "x",
+					"sid": 891706801972565,
+					"parameters": {
+						"text": "player_colisao.Plataforma.VectorX"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "y",
+					"sid": 505696883107987,
+					"parameters": {
+						"text": "player_colisao.Plataforma.VectorY"
+					}
+				},
+				{
+					"id": "scroll-to-position",
+					"objectClass": "System",
+					"sid": 681678128574442,
+					"parameters": {
+						"x": "player_colisao.x",
+						"y": "player_animacao.y-200"
+					}
+				}
+			],
+			"sid": 878943705494359
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Animações",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 356659750332388,
+							"parameters": {
+								"first-value": "player_colisao.Plataforma.VectorX",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "player_animacao",
+							"sid": 821383799196009,
+							"parameters": {
+								"animation": "\"parado\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 461545336035128
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 447583073328494,
+							"parameters": {
+								"first-value": "player_colisao.Plataforma.VectorX",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "player_animacao",
+							"sid": 250054741511824,
+							"parameters": {
+								"animation": "\"correndo\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "player_animacao",
+							"sid": 376736464211552,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 113820782517170
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 295492695871184,
+							"parameters": {
+								"first-value": "player_colisao.Plataforma.VectorX",
+								"comparison": 2,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "player_animacao",
+							"sid": 773518930841155,
+							"parameters": {
+								"animation": "\"correndo\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "player_animacao",
+							"sid": 702130999288154,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 896079533897513
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 860620845409407,
+							"parameters": {
+								"first-value": "player_colisao.Plataforma.VectorY",
+								"comparison": 2,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "player_animacao",
+							"sid": 464278601853238,
+							"parameters": {
+								"animation": "\"pulando\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 792924172191030
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 167618425352682,
+							"parameters": {
+								"first-value": "player_colisao.Plataforma.VectorY",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "player_animacao",
+							"sid": 610558465840247,
+							"parameters": {
+								"animation": "\"caindo\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 729808511364600
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 575941047472209
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "player_animacao",
+							"sid": 383141291917579,
+							"behaviorType": "Atrelar",
+							"parameters": {
+								"pin-to": "player_colisao",
+								"image-point": "0",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 214729715776317
+				}
+			],
+			"sid": 120237624644201
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "player_colisao",
+					"sid": 649843970616277,
+					"parameters": {
+						"object": "morre"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 379022015072817
+				}
+			],
+			"sid": 498481584113702
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "player_colisao",
+					"sid": 592037464341419,
+					"parameters": {
+						"object": "Sprite"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 836573304534832,
+					"parameters": {
+						"layout": "\"menu\""
+					}
+				}
+			],
+			"sid": 244212884416962
+		}
+	],
+	"sid": 384840941508843
+}
